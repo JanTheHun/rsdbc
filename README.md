@@ -10,13 +10,16 @@ The goal is to build a very simple but flexible generic (meaning: multi-DB) data
 
 You need ncurses and MySQL Connector/C installed in order to make it work.
 
-Compile it like this (apply your dorectories where needed):
+Compile it like this (apply your directories where needed):
 
 gcc -o mysql mysql.c -I /usr/include/mysql -lncurses -L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -ldl
 
 Explanation: you may need to include your mysql directory with "-I".
+
 -lncurses links ncurses.
+
 The "-L" part may seem intimidating but it's actually quite simple to retrieve, just run "mysql_config --libs" after you installed mysql.
+
 The result is an executable called "mysql".
 
 ## Contributors
