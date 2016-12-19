@@ -22,6 +22,23 @@ The "-L" part may seem intimidating but it's actually quite simple to retrieve, 
 
 The result is an executable called "rsdbc". On Linux, run it with "./rsdbc".
 
+## How To Use
+
+Congigure your MySQL connection in the file named "rsdbc.conf". 
+
+```
+#	Configuration file for rsdbc
+#	lines starting with '#' are comments
+#	'port' is integer, every other field is a string, use double quotes!
+
+port=3306
+host="localhost"
+db="testdb"
+table="test"
+usr="user"
+pass="password"
+```
+
 ## Contributors
 
 JanTheHun
