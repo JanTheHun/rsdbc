@@ -1,7 +1,9 @@
 /*
 !mysql.c
+!functions.h
+!fileio.h
+
 !Makefile
-!*.h
 !.gitignore
 !README.md
 !LICENSE.md
