@@ -1,10 +1,10 @@
 ## Ridiculously Simple DB Client
 
-A very simple Database Client written in C. So far it's nothing more than a bloated "Hello World!" app...
+A very simple MySQL Database Client written in C. So far it's nothing more than a bloated "Hello World!" app...
 
 ## Mission Objective
 
-The goal is to build a very simple but flexible generic database client that runs in command line.
+The goal is to build a very simple but flexible generic (meaning: multi-DB) database client that runs in command line.
 
 ## Contributors
 
