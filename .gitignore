@@ -1,9 +1,10 @@
 /*
 !rsdbc.c
-!functions.h
+!browser.h
 !fileio.h
+!conffunc.h
+!dbfunc.h
 
-!Makefile
 !.gitignore
 !README.md
 !LICENSE.md

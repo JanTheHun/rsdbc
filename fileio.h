@@ -1,7 +1,7 @@
 #ifndef FILEIO_H
 #define FILEIO_H
 
-void load_config(Conf *config) {
+int load_config(Conf *config,char *filename) {
 
 	void trim_str(char *val,char *out) {
 		int z;
@@ -23,9 +23,7 @@ void load_config(Conf *config) {
 	char *line=malloc(sizeof (char));
 	char **attrs=malloc(sizeof (char*));
 
-	file=fopen("rsdbc.conf","r");
-
-	if (file) {
+	if (file=fopen(filename,"r")) {
 		while( ( ch = fgetc(file) ) != EOF )	{
 				if (ch==10) {
 					line[chnr]='\0';
@@ -47,6 +45,9 @@ void load_config(Conf *config) {
 				}
 		}
 		fclose(file);
+	} else {
+		//	no config file
+		return (1);
 	}
 
 	for (x=0;x<line_nr;x++) {
@@ -66,46 +67,48 @@ void load_config(Conf *config) {
 		char firstchar=val[0];
 		char lastchar=val[strlen(val)-1];
 		char *out=malloc(strlen(val)-1);
-		int y;
 
 		if (strcmp(fi,"port")==0) {
 			config->port=strtol(val,&rest,10);
 		}
-
 		if (strcmp(fi,"host")==0) {
 			if (firstchar=='"' && lastchar=='"') {
 				trim_str(val,out);
-				config->host=out;
+				config->host=realloc(config->host,1+strlen(out));
+				strcpy(config->host,out);
 			}
 		}
-
 		if (strcmp(fi,"db")==0) {
 			if (firstchar=='"' && lastchar=='"') {
 				trim_str(val,out);
-				config->db=out;
+				config->db=realloc(config->db,1+strlen(out));
+				strcpy(config->db,out);
 			}
 		}
-
 		if (strcmp(fi,"usr")==0) {
 			if (firstchar=='"' && lastchar=='"') {
 				trim_str(val,out);
-				config->usr=out;
+				config->usr=realloc(config->usr,1+strlen(out));
+				strcpy(config->usr,out);
 			}
 		}
-
+		if (strcmp(fi,"pass")==0) {
+			if (firstchar=='"' && lastchar=='"') {
+				trim_str(val,out);
+				config->pass=realloc(config->pass,1+strlen(out));
+				strcpy(config->pass,out);
+			}
+		}
+		
 		if (strcmp(fi,"table")==0) {
 			if (firstchar=='"' && lastchar=='"') {
 				trim_str(val,out);
 				config->table=out;
 			}
 		}
-		if (strcmp(fi,"pass")==0) {
-			if (firstchar=='"' && lastchar=='"') {
-				trim_str(val,out);
-				config->pass=out;
-			}
-		}
+		
 	}
+	return (0);
 }
 
 #endif

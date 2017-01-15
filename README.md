@@ -5,6 +5,7 @@ A very simple MySQL Database Client written in C. So far it's nothing more than 
 ## Mission Objective
 
 The goal is to build a very simple but flexible generic (meaning: multi-DB) database client that runs in command line.
+So far it only works with MySQL.
 
 ## Installation
 
@@ -14,9 +15,11 @@ Compile it like this (apply your directories where needed):
 
 ```gcc -o rsdbc rsdbc.c -I /usr/include/mysql -lncurses -L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -ldl```
 
-Explanation: you may need to include your mysql directory with "-I".
+Explanation:
 
-```-lncurses``` links ncurses.
+First you may need to include your mysql directory with ```-I <path>/<to>/<mysql>```
+
+Than you link ncurses with ```-lncurses```
 
 The "-L" part may seem intimidating but it's actually quite simple to retrieve, just run ```mysql_config --libs``` after you installed mysql.
 
