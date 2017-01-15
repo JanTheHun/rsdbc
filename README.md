@@ -19,7 +19,7 @@ Explanation:
 
 First you may need to include your mysql directory with ```-I <path>/<to>/<mysql>```
 
-Than you link ncurses with ```-lncurses```
+Than you link ncurses libraries with ```-lncurses -lmenu -lpanel```
 
 The "-L" part may seem intimidating but it's actually quite simple to retrieve, just run ```mysql_config --libs``` after you installed mysql.
 
