@@ -13,11 +13,11 @@ You need ncurses and MySQL Connector/C installed in order to make it work.
 
 Compile it like this (apply your directories where needed):
 
-```gcc -o rsdbc rsdbc.c -I /usr/include/mysql -lncurses -L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -ldl```
+```gcc -o rsdbc rsdbc.c -I /usr/include/mysql -lncurses -lmenu -lpanel -L/usr/lib/x86_64-linux-gnu -lmysqlclient -lpthread -lz -lm -ldl```
 
 Explanation:
 
-First you may need to include your mysql directory with ```-I <path>/<to>/<mysql>```
+First you may need to include your mysql directory with ```-I /<path>/<to>/<mysql>```
 
 Than you link ncurses libraries with ```-lncurses -lmenu -lpanel```
 
@@ -27,7 +27,7 @@ The result is an executable called "rsdbc". On Linux, run it with ```./rsdbc```.
 
 ## How To Use
 
-Congigure your MySQL connection in the file named "rsdbc.conf". 
+Congigure your MySQL connection in a file like this:
 
 ```
 #	Configuration file for rsdbc
@@ -41,6 +41,8 @@ table="test"
 usr="user"
 pass="password"
 ```
+
+You can load this file later with "Load from file" option.
 
 ## Contributors
 
